@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.com/DampRR/DampRR.jl.svg?branch=master)](https://travis-ci.com/DampRR/DampRR.jl)
 
-This package contains Reconstruction tools for DampRR project.
+This package contains various tools based on the damped rank-reduction (DRR) method.
 
 At the moment, it is updated and tested against Julia v1.
 
@@ -20,7 +20,7 @@ julia>using DampRR
 
 If you use the DampRR project, please cite the following paper
 ```
-@Article{weilin2016dmssa,
+@Article{huang2016dmssa,
   author={Weilin Huang and Runqiu Wang and  Yangkang Chen and Huijian Li and Shuwei Gan},
   title = {Damped Multichannel Singular Spectrum Analysis for 3{D} Random Noise Attenuation },
   journal={Geophysics},
@@ -30,26 +30,24 @@ If you use the DampRR project, please cite the following paper
   number=4,
   pages={V261-V270},
 }
-```
- 
-## Basic usage
 
-The following example produces the figure below.
+@article{chen2016drr5d,
+  title={Simultaneous denoising and reconstruction of 5{D} seismic data via damped rank-reduction method},
+  author={Yangkang Chen and Dong Zhang and Zhaoyu Jin and Xiaohong Chen and Shaohuan Zu and Weilin Huang and Shuwei Gan},
+  journal={Geophysical Journal International},
+  volume={206},
+  number={3},
+  issue={3},
+  pages={1695-1717},
+  year={2016}
+}
 
-```Julia
-using SeisPlot,PyPlot, DampRR, SeisProcessing
-
-# Create linear events
-d = SeisLinearEvents(p1 = [-.001, 0.0015],tau=[1, 1/3],dx1=5); 
-
-#Randomly decimate, perc=80 means that 80% of the bins are empty
-deci = SeisDecimate(d;perc=80);
-
-param = Dict(:Niter=>100,:fmax=>60,:padt=>2,:padx=>2,:dt=>0.004)
-dpocs = SeisPOCS(deci;param...);
-
-subplot(121)
-SeisPlotTX(deci,cmap="seismic",fignum=1,pclip=200,title="Decimated data")
-subplot(122)
-SeisPlotTX(dpocs[:,:,1,1,1],cmap="seismic",fignum=1,pclip=200,title="After POCS")
+@article{chen2016drr3d,
+  title={An open-source Matlab code package for improved rank-reduction 3{D} seismic data denoising and reconstruction},
+  author={Yangkang Chen and Dong Zhang and Weilin Huang and Wei Chen},
+  journal={Computers \& Geosciences},
+  volume={95},
+  pages={59-66},
+  year={2016}
+}
 ```
