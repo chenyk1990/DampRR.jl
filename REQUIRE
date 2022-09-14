@@ -5,3 +5,7 @@ Requires
 FFTW
 LinearAlgebra
 DSP
+Statistics
+Random
+ToeplitzMatrices
+Printf
