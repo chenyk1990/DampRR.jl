@@ -84,18 +84,18 @@ d0=shot;
 
 ## add noise
 (n1,n2,n3)=size(d0)
-# using Random, Statistics
+using Random, Statistics
 Random.seed!(20212223)
 n=0.2*randn(n1,n2,n3)
 dn=d0+n;
 println("data std=",std(dn))
 
 # include("drr3d.jl")
-d1=drr3d(dn,0,120,0.004,3,100);	#RR
+d1=drr3d(dn,0,120,0.004,3,100,1);	#RR
 noi1=dn-d1;
 
 
-d2=drr3d(dn,0,120,0.004,3,3);	#DRR
+d2=drr3d(dn,0,120,0.004,3,3,1);	#DRR
 noi2=dn-d2;
 
 
@@ -104,11 +104,17 @@ noi2=dn-d2;
 # println('SNR of DRR is %g'%drr_snr(d0,d2,2));
 
 using PyPlot
-subplot(121)
-pcolormesh(d0[:,:,10]);colorbar();
+subplot(141)
+pcolormesh(d0[:,:,10]);
 
-subplot(122)
-pcolormesh(dn[:,:,10]);colorbar();
+subplot(142)
+pcolormesh(dn[:,:,10]);
+
+subplot(143)
+pcolormesh(d1[:,:,10]);
+
+subplot(144)
+pcolormesh(d2[:,:,10]);
 show()
 
 
