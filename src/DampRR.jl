@@ -3,4 +3,6 @@ module DampRR
     include("Reconstruction/Reconstruction.jl")
     include("Denoising/Denoising.jl")
     include("Tools/Tools.jl")
+    include("Synthetics.jl")
+    export planar3d
 end
