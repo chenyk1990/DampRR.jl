@@ -84,6 +84,7 @@ d0=shot;
 
 ## add noise
 (n1,n2,n3)=size(d0)
+
 using Random, Statistics
 Random.seed!(20212223)
 n=0.2*randn(n1,n2,n3)
