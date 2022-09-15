@@ -19,10 +19,6 @@ b3=zeros(length(ts),1)
 b4=zeros(length(ts),1)
 
 
-
-println("n=",n," m=",m," pi=",pi)
-print(ts,'\n')
-
 global k=0;
 # for k in range(1,length(ts))
 for t in ts
