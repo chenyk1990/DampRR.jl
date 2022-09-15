@@ -63,9 +63,9 @@ using DampRR,Random,Statistics,PyPlot
 d0=planar3d();
 
 ## add noise
-(n1,n2,n3)=size(d0)
-Random.seed!(20212223)
-n=0.2*randn(n1,n2,n3)
+(n1,n2,n3)=size(d0);
+Random.seed!(20212223);
+n=0.2*randn(n1,n2,n3);
 dn=d0+n;
 
 ## Denoising
