@@ -23,6 +23,8 @@ b4=zeros(length(ts),1)
 println("n=",n," m=",m," pi=",pi)
 print(ts,'\n')
 
+global k=0;
+
 for k in range(1,length(ts))
 	t=ts[k]
     b1[k]=(1-2*(pi*30*t)*(pi*30*t))*exp(-(pi*30*t)*(pi*30*t));
