@@ -24,9 +24,9 @@ println("n=",n," m=",m," pi=",pi)
 print(ts,'\n')
 
 global k=0;
-
-for k in range(1,length(ts))
-	t=ts[k]
+# for k in range(1,length(ts))
+for t in ts
+	global k=k+1;
     b1[k]=(1-2*(pi*30*t)*(pi*30*t))*exp(-(pi*30*t)*(pi*30*t));
     b2[k]=(1-2*(pi*40*t)*(pi*40*t))*exp(-(pi*40*t)*(pi*40*t));
     b3[k]=(1-2*(pi*40*t)*(pi*40*t))*exp(-(pi*40*t)*(pi*40*t));
