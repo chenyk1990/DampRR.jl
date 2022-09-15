@@ -51,3 +51,38 @@ If you use the DampRR project, please cite the following paper
   year={2016}
 }
 ```
+
+## Basic usage
+
+The following example produces the figure below.
+
+```Julia
+using DampRR,Random,Statistics,PyPlot
+
+## Create planar synthetic data
+d0=planar3d;
+
+## add noise
+(n1,n2,n3)=size(d0)
+Random.seed!(20212223)
+n=0.2*randn(n1,n2,n3)
+dn=d0+n;
+
+## Denoising
+d1=drr3d(dn,0,120,0.004,3,100,1);	#RR
+noi1=dn-d1;
+d2=drr3d(dn,0,120,0.004,3,3,1);	#DRR
+noi2=dn-d2;
+
+## Plotting results and comparison
+subplot(141)
+pcolormesh(d0[:,:,10]);
+subplot(142)
+pcolormesh(dn[:,:,10]);
+subplot(143)
+pcolormesh(d1[:,:,10]);
+subplot(144)
+pcolormesh(d2[:,:,10]);
+show()
+```
+
