@@ -60,7 +60,7 @@ The following example produces the figure below.
 using DampRR,Random,Statistics,PyPlot
 
 ## Create planar synthetic data
-d0=planar3d;
+d0=planar3d();
 
 ## add noise
 (n1,n2,n3)=size(d0)
