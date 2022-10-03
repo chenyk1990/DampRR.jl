@@ -13,7 +13,8 @@
 #  GNU General Public License for more details: http://www.gnu.org/licenses/
 #  
 ## generate synthetic data
-#This synthetic data was used in Huang et al., 2016, Damped multichannel singular spectrum analysis for 3D random noise attenuation, Geophysics, 81, V261-V270.
+# This synthetic data was used in 
+# Huang et al., 2016, Damped multichannel singular spectrum analysis for 3D random noise attenuation, Geophysics, 81, V261-V270.
 
 using DampRR,Random, Statistics, PyPlot
 
